@@ -36,14 +36,22 @@
             padding: 40px 24px;
             box-sizing: border-box;
             z-index: 100;
+            display: flex;
+            flex-direction: column;
         }
 
-        .brand-name {
-            color: var(--brand-orange);
-            font-size: 32px;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -1px;
+        /* Logo Styling */
+        .brand-logo-container {
+            width: 100%;
+            max-width: 180px;
+            margin-bottom: 10px;
+        }
+
+        .brand-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
 
         .brand-tagline {
@@ -84,7 +92,7 @@
             background-color: #fff8f1;
         }
 
-        /* Mobile Category Nav (Hidden by default) */
+        /* Mobile Category Nav */
         .mobile-nav {
             display: none;
             overflow-x: auto;
@@ -95,9 +103,9 @@
             position: sticky;
             top: 0;
             z-index: 99;
-            scrollbar-width: none; /* Hide scrollbar Firefox */
+            scrollbar-width: none;
         }
-        .mobile-nav::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+        .mobile-nav::-webkit-scrollbar { display: none; }
 
         .mobile-nav a {
             display: inline-block;
@@ -174,16 +182,6 @@
             transition: transform 0.5s ease;
         }
 
-        /* Fallback if image is missing */
-        .image-container img:not([src]), 
-        .image-container img[src=""] {
-            display: none;
-        }
-
-        .menu-card:hover .image-container img {
-            transform: scale(1.1);
-        }
-
         .card-details {
             padding: 20px;
         }
@@ -253,7 +251,6 @@
             font-size: 18px;
         }
 
-        /* Quantity Selector Styling */
         .quantity-control {
             display: flex;
             align-items: center;
@@ -277,7 +274,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s;
         }
 
         .qty-btn:hover {
@@ -299,15 +295,10 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
-            transition: opacity 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-        }
-
-        .btn-wa:hover {
-            opacity: 0.9;
         }
 
         .btn-close {
@@ -326,24 +317,29 @@
                 height: auto; 
                 position: relative; 
                 border-right: none; 
-                padding: 32px 24px 16px 24px; 
+                padding: 24px 24px 16px 24px; 
+                align-items: center;
+                text-align: center;
             }
+            .brand-logo-container { max-width: 140px; }
             .category-nav { display: none; }
             .mobile-nav { display: flex; }
             .main-content { 
                 margin-left: 0; 
                 padding: 24px 20px; 
             }
-            .brand-name { font-size: 28px; }
             .section-header { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar (Logo for Mobile) -->
+    <!-- Sidebar -->
     <div class="sidebar">
-        <h1 class="brand-name">D. Luna</h1>
+        <div class="brand-logo-container">
+            <!-- Replace images/logo.png with your actual file path -->
+            <img src="images/logo.png" alt="D. Luna Logo" class="brand-logo">
+        </div>
         <p class="brand-tagline">Food & Drink</p>
 
         <nav class="category-nav">
@@ -474,10 +470,8 @@
 
         function openModal(name, priceValue) {
             currentItem = { name, price: priceValue, qty: 1 };
-            
             document.getElementById('modalName').innerText = name;
             updateModalUI();
-
             document.getElementById('orderModal').style.display = 'flex';
         }
 
@@ -489,11 +483,9 @@
         function updateModalUI() {
             const totalPrice = currentItem.price * currentItem.qty;
             const formattedTotal = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(totalPrice);
-            
             document.getElementById('modalPrice').innerText = formattedTotal;
             document.getElementById('qtyVal').innerText = currentItem.qty;
 
-            // Update WhatsApp link
             const waNumber = "6281234567890"; 
             const message = encodeURIComponent(`Halo D. Luna, saya ingin pesan:\n\n*${currentItem.name}*\nJumlah: ${currentItem.qty}\nTotal: ${formattedTotal}\n\nApakah tersedia?`);
             document.getElementById('waLink').href = `https://wa.me/${waNumber}?text=${message}`;
@@ -507,6 +499,5 @@
             if (e.key === 'Escape') closeModal();
         });
     </script>
-
 </body>
 </html>
