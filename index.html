@@ -67,14 +67,6 @@
             margin-top: 32px;
         }
 
-        .category-nav h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
         .category-link {
             text-decoration: none;
             color: var(--text-dark);
@@ -220,6 +212,31 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
+        .temp-selector {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .temp-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .temp-btn.active {
+            background: var(--brand-orange);
+            color: white;
+            border-color: var(--brand-orange);
+        }
+
         .creamer-toggle {
             display: flex;
             align-items: center;
@@ -300,19 +317,15 @@
     </div>
 
     <div class="main-content">
-        <!-- FOOD SECTION -->
         <h2 id="makanan" class="section-header">Makanan</h2>
         <div class="menu-grid" id="food-grid"></div>
 
-        <!-- THAI TEA SECTION -->
         <h2 id="thai-tea" class="section-header">Thai Tea Varian</h2>
         <div class="menu-grid" id="thai-grid"></div>
 
-        <!-- COFFEE SECTION -->
         <h2 id="coffee" class="section-header">Coffee</h2>
         <div class="menu-grid" id="coffee-grid"></div>
 
-        <!-- DRINKS SECTION -->
         <h2 id="minuman" class="section-header">Minuman</h2>
         <div class="menu-grid" id="drink-grid"></div>
     </div>
@@ -323,6 +336,14 @@
             <h3 id="modalName">Item</h3>
             <p class="item-price" id="modalPrice">Rp 0</p>
             
+            <!-- Temperature Selector (Hot/Cold) -->
+            <div id="tempArea" style="display:none;">
+                <div class="temp-selector">
+                    <button id="btnHot" class="temp-btn" onclick="setTemp('Hot')">Hot</button>
+                    <button id="btnCold" class="temp-btn" onclick="setTemp('Cold')">Cold</button>
+                </div>
+            </div>
+
             <div id="extraArea" style="display:none;">
                 <label class="creamer-toggle">
                     <input type="checkbox" id="extraCheck" onchange="updateModalUI()">
@@ -362,20 +383,20 @@
                 "Blueberi", "Cookies and Cream", "Choco Caramel", "Tiramisu", "Cappuccino", "Thai Tea Brown Sugar"
             ].map(name => ({ name, price: 5000, isThai: true, img: "https://pbs.twimg.com/media/G9_GD_0bcAUtbyP?format=jpg&name=medium" })),
             coffee: [
-                { name: "Kopi Tubruk", price: 5000, img: "https://pbs.twimg.com/media/G9_GLWtbcAIQtF3?format=jpg&name=medium" },
-                { name: "Espresso Hot/Cold", price: 7000, img: "https://pbs.twimg.com/media/G9_GLckbcAAZtYs?format=jpg&name=medium" },
-                { name: "Kopi Susu", price: 5000, img: "https://pbs.twimg.com/media/G9_GD68bcAACLL0?format=jpg&name=medium" },
-                { name: "Kopi Gula Aren", price: 5000, img: "https://pbs.twimg.com/media/G9_GLd9boAAVTKz?format=jpg&name=medium" },
-                { name: "Kopi Jahe", price: 5000, img: "https://pbs.twimg.com/media/G9_GD68bcAACLL0?format=jpg&name=medium" }
+                { name: "Kopi Tubruk", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GLWtbcAIQtF3?format=jpg&name=medium" },
+                { name: "Espresso Hot/Cold", price: 7000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GLckbcAAZtYs?format=jpg&name=medium" },
+                { name: "Kopi Susu", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GD68bcAACLL0?format=jpg&name=medium" },
+                { name: "Kopi Gula Aren", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GLd9boAAVTKz?format=jpg&name=medium" },
+                { name: "Kopi Jahe", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GD68bcAACLL0?format=jpg&name=medium" }
             ],
             drinks: [
                 { name: "Mojito Melon with Lemon", price: 5000, img: "https://pbs.twimg.com/media/G9_F-QYbcAQ7D99?format=jpg&name=medium" },
                 { name: "Mojito Cc Pandan with Lemon", price: 5000, img: "https://pbs.twimg.com/media/G9_F-_fbcAgUWyW?format=jpg&name=medium" },
                 { name: "Nutrisari All Varian", price: 3000, isNutri: true, img: "https://pbs.twimg.com/media/G9_F-TObcAMS_g4?format=jpg&name=medium" },
-                { name: "Creamy Latte", price: 5000, img: "https://pbs.twimg.com/media/G9_GD_ba8AELC__?format=jpg&name=medium" },
-                { name: "Bengbeng Drink", price: 5000, img: "https://pbs.twimg.com/media/G9_GD9DbAAApDeF?format=jpg&name=medium" },
-                { name: "Hi Low Calcium", price: 5000, img: "https://pbs.twimg.com/media/G9_GD9DbAAApDeF?format=jpg&name=medium" },
-                { name: "Cappuccino", price: 5000, img: "https://pbs.twimg.com/media/G9_GD_ba8AELC__?format=jpg&name=medium" }
+                { name: "Creamy Latte", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GD_ba8AELC__?format=jpg&name=medium" },
+                { name: "Bengbeng Drink", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GD9DbAAApDeF?format=jpg&name=medium" },
+                { name: "Hi Low Calcium", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GD9DbAAApDeF?format=jpg&name=medium" },
+                { name: "Cappuccino", price: 5000, hasTemp: true, img: "https://pbs.twimg.com/media/G9_GD_ba8AELC__?format=jpg&name=medium" }
             ]
         };
 
@@ -401,12 +422,24 @@
         renderGrid('coffee-grid', menuData.coffee);
         renderGrid('drink-grid', menuData.drinks);
 
-        let currentOrder = { item: null, qty: 1, extra: false };
+        let currentOrder = { item: null, qty: 1, extra: false, temp: 'Cold' };
 
         function openModal(item) {
-            currentOrder = { item, qty: 1, extra: false };
+            // Default settings for the selected item
+            currentOrder = { item, qty: 1, extra: false, temp: item.hasTemp ? 'Cold' : '' };
+            
             document.getElementById('modalName').innerText = item.name;
             
+            // Temperature UI logic
+            const tempArea = document.getElementById('tempArea');
+            if (item.hasTemp) {
+                tempArea.style.display = 'block';
+                setTemp('Cold'); // Default to Cold
+            } else {
+                tempArea.style.display = 'none';
+            }
+
+            // Extra Options UI logic
             const extraArea = document.getElementById('extraArea');
             const extraLabel = document.getElementById('extraLabel');
             
@@ -423,6 +456,13 @@
             document.getElementById('extraCheck').checked = false;
             updateModalUI();
             document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function setTemp(t) {
+            currentOrder.temp = t;
+            document.getElementById('btnHot').className = t === 'Hot' ? 'temp-btn active' : 'temp-btn';
+            document.getElementById('btnCold').className = t === 'Cold' ? 'temp-btn active' : 'temp-btn';
+            updateModalUI();
         }
 
         function updateQty(d) {
@@ -443,7 +483,9 @@
                 extraText = currentOrder.item.isThai ? " (+Creamer)" : " (+Milk)";
             }
 
-            const msg = `Halo D. Luna, saya mau pesan:\n*${currentOrder.item.name}*${extraText}\nJumlah: ${currentOrder.qty}\nTotal: Rp ${total.toLocaleString('id-ID')}`;
+            let tempLabel = currentOrder.temp ? ` [${currentOrder.temp}]` : "";
+
+            const msg = `Halo D. Luna, saya mau pesan:\n*${currentOrder.item.name}${tempLabel}*${extraText}\nJumlah: ${currentOrder.qty}\nTotal: Rp ${total.toLocaleString('id-ID')}`;
             document.getElementById('waLink').href = `https://wa.me/6283898990023?text=${encodeURIComponent(msg)}`;
         }
 
@@ -451,5 +493,3 @@
     </script>
 </body>
 </html>
-
-
