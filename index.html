@@ -24,7 +24,6 @@
             scroll-behavior: smooth;
         }
         
-        /* Sidebar Styling */
         .sidebar {
             width: 280px;
             height: 100vh;
@@ -40,10 +39,9 @@
             flex-direction: column;
         }
 
-        /* Logo Styling */
         .brand-logo-container {
             width: 100%;
-            max-width: 120px;
+            max-width: 100px;
             margin-bottom: 10px;
             border-radius: 50%;
             overflow: hidden;
@@ -59,16 +57,14 @@
         }
 
         .brand-tagline {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--brand-orange);
+            margin: 10px 0;
         }
 
         .category-nav {
-            margin-top: 48px;
+            margin-top: 32px;
         }
 
         .category-nav h3 {
@@ -76,7 +72,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .category-link {
@@ -85,7 +81,7 @@
             font-weight: 500;
             font-size: 15px;
             display: block;
-            padding: 12px 16px;
+            padding: 10px 16px;
             border-radius: 8px;
             transition: all 0.2s ease;
             margin-bottom: 4px;
@@ -96,7 +92,6 @@
             background-color: #fff8f1;
         }
 
-        /* Mobile Category Nav */
         .mobile-nav {
             display: none;
             overflow-x: auto;
@@ -115,25 +110,25 @@
             display: inline-block;
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            padding: 8px 16px;
-            margin-right: 8px;
+            padding: 8px 14px;
+            margin-right: 6px;
             border-radius: 20px;
             background: #f8f9fa;
         }
 
-        /* Main Content Area */
         .main-content {
             margin-left: 280px;
-            padding: 60px 80px;
+            padding: 40px 60px;
             max-width: 1200px;
         }
 
         .section-header {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 32px;
+            margin-top: 40px;
+            margin-bottom: 24px;
             color: var(--text-dark);
             display: flex;
             align-items: center;
@@ -144,35 +139,33 @@
             flex-grow: 1;
             height: 1px;
             background: var(--border-light);
-            margin-left: 24px;
+            margin-left: 20px;
         }
 
-        /* Grid Layout */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 32px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
         }
 
         .menu-card {
             background: var(--bg-white);
-            border-radius: 16px;
+            border-radius: 12px;
             border: 1px solid var(--border-light);
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
         .menu-card:hover {
             border-color: var(--brand-orange);
-            box-shadow: 0 12px 24px rgba(245, 124, 0, 0.08);
-            transform: translateY(-4px);
+            transform: translateY(-2px);
         }
 
         .image-container {
             background: #f8f9fa;
-            height: 180px;
+            height: 150px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -183,35 +176,26 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
         .card-details {
-            padding: 20px;
+            padding: 15px;
         }
 
         .item-name {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            margin: 0 0 8px 0;
+            margin: 0 0 5px 0;
             color: var(--text-dark);
         }
 
         .item-price {
             color: var(--brand-orange);
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
         }
 
-        .thai-note {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: -24px;
-            margin-bottom: 32px;
-            display: block;
-        }
-
-        /* Modal Styling */
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -228,128 +212,83 @@
 
         .modal-box {
             background: white;
-            padding: 32px;
-            border-radius: 24px;
+            padding: 30px;
+            border-radius: 20px;
             width: 90%;
-            max-width: 400px;
+            max-width: 380px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: slideUp 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .modal-price {
+        .creamer-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #fff8f1;
+            border-radius: 10px;
+            font-size: 14px;
             color: var(--brand-orange);
             font-weight: 600;
-            margin-bottom: 24px;
-            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .creamer-toggle input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
 
         .quantity-control {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 32px;
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 16px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
         .qty-btn {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             border: 1px solid #ddd;
             background: white;
-            font-size: 20px;
-            font-weight: 700;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .qty-btn:hover {
-            border-color: var(--brand-orange);
-            color: var(--brand-orange);
-        }
-
-        .qty-number {
-            font-size: 20px;
-            font-weight: 700;
-            min-width: 30px;
+            font-weight: bold;
         }
 
         .btn-wa {
             background-color: var(--brand-whatsapp);
             color: white;
-            padding: 16px;
-            border-radius: 14px;
+            padding: 14px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-close {
-            margin-top: 20px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: underline;
+            display: block;
         }
 
         @media (max-width: 900px) {
-            .sidebar { 
-                width: 100%; 
-                height: auto; 
-                position: relative; 
-                border-right: none; 
-                padding: 24px 24px 16px 24px; 
-                align-items: center;
-                text-align: center;
-            }
-            .brand-logo-container { max-width: 100px; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 20px; align-items: center; }
             .category-nav { display: none; }
             .mobile-nav { display: flex; }
-            .main-content { 
-                margin-left: 0; 
-                padding: 24px 20px; 
-            }
-            .section-header { font-size: 24px; }
+            .main-content { margin-left: 0; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <div class="brand-logo-container">
-            <!-- Using a high-quality link from Unsplash as the logo -->
-            <img src="https://pbs.twimg.com/media/G9-MLrjbcAAW8Md?format=jpg&name=small" alt="D. Luna Logo" class="brand-logo">
+            <img src="https://pbs.twimg.com/media/G9-MLrjbcAAW8Md?format=jpg&name=small" alt="Logo" class="brand-logo">
         </div>
-        <p class="brand-tagline">D. Luna Food & Drink</p>
+        <p class="brand-tagline">D. LUNA</p>
         <nav class="category-nav">
             <a href="#makanan" class="category-link">Makanan (12)</a>
-            <a href="#thai-tea" class="category-link">Thai Tea (13)</a>
-            <a href="#coffee" class="category-link">Coffee (6)</a>
-            <a href="#minuman" class="category-link">Minuman (8)</a>
+            <a href="#thai-tea" class="category-link">Thai Tea (12)</a>
+            <a href="#coffee" class="category-link">Coffee (5)</a>
+            <a href="#minuman" class="category-link">Minuman (7)</a>
         </nav>
     </div>
 
@@ -361,20 +300,20 @@
     </div>
 
     <div class="main-content">
-        <!-- FOOD SECTION (12 ITEMS) -->
+        <!-- FOOD SECTION -->
         <h2 id="makanan" class="section-header">Makanan</h2>
         <div class="menu-grid" id="food-grid"></div>
 
-        <!-- THAI TEA SECTION (13 VARIANTS) -->
+        <!-- THAI TEA SECTION -->
         <h2 id="thai-tea" class="section-header">Thai Tea Varian</h2>
         <div class="menu-grid" id="thai-grid"></div>
 
-        <!-- COFFEE SECTION (6 ITEMS) -->
+        <!-- COFFEE SECTION -->
         <h2 id="coffee" class="section-header">Coffee</h2>
         <div class="menu-grid" id="coffee-grid"></div>
 
-        <!-- DRINKS SECTION (8 ITEMS) -->
-        <h2 id="minuman" class="section-header">Minuman Lain</h2>
+        <!-- DRINKS SECTION -->
+        <h2 id="minuman" class="section-header">Minuman</h2>
         <div class="menu-grid" id="drink-grid"></div>
     </div>
 
@@ -384,10 +323,10 @@
             <h3 id="modalName">Item</h3>
             <p class="item-price" id="modalPrice">Rp 0</p>
             
-            <div id="creamerArea" style="display:none;">
+            <div id="extraArea" style="display:none;">
                 <label class="creamer-toggle">
-                    <input type="checkbox" id="creamerCheck" onchange="updateModalUI()">
-                    Extra Creamer (+Rp 2.000)
+                    <input type="checkbox" id="extraCheck" onchange="updateModalUI()">
+                    <span id="extraLabel">Extra (+Rp 2.000)</span>
                 </label>
             </div>
 
@@ -405,40 +344,38 @@
     <script>
         const menuData = {
             makanan: [
-                { name: "Burger Telur", price: 10000, img: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Burger Daging", price: 15000, img: "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Enoki Sosis", price: 10000, img: "https://images.pexels.com/photos/6605206/pexels-photo-6605206.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Enoki Beef", price: 15000, img: "https://images.pexels.com/photos/10185121/pexels-photo-10185121.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Sosis Bakar Jumbo", price: 10000, img: "https://images.pexels.com/photos/1253303/pexels-photo-1253303.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Otak-otak (5 pcs)", price: 5000, img: "https://images.pexels.com/photos/691114/pexels-photo-691114.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Sayap Saos", price: 5000, img: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Kulit Ayam", price: 5000, img: "https://images.pexels.com/photos/6061611/pexels-photo-6061611.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Burger Telur / Egg Burger", price: 10000, img: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Burger Daging / Beef Burger", price: 15000, img: "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Inoki Sosis", price: 10000, img: "https://images.pexels.com/photos/6605206/pexels-photo-6605206.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Inoki Bakso", price: 10000, img: "https://images.pexels.com/photos/1253303/pexels-photo-1253303.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Inoki Beef", price: 15000, img: "https://images.pexels.com/photos/10185121/pexels-photo-10185121.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Inoki Egg", price: 10000, img: "https://images.pexels.com/photos/2092916/pexels-photo-2092916.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Sayap Saos / Wings Sauce", price: 5000, img: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Siomay Stik (isi 2)", price: 5000, img: "https://images.pexels.com/photos/2294863/pexels-photo-2294863.jpeg?auto=compress&cs=tinysrgb&w=200" },
                 { name: "Tortilla Egg Jumbo", price: 20000, img: "https://images.pexels.com/photos/2092916/pexels-photo-2092916.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Kentang Bakar Mozza", price: 7000, img: "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Dumpling Keju", price: 5000, img: "https://images.pexels.com/photos/2294863/pexels-photo-2294863.jpeg?auto=compress&cs=tinysrgb&w=200" },
-                { name: "Dumpling Ayam", price: 5000, img: "https://images.pexels.com/photos/2294863/pexels-photo-2294863.jpeg?auto=compress&cs=tinysrgb&w=200" }
+                { name: "Tortilla Egg Sedang", price: 10000, img: "https://images.pexels.com/photos/2092916/pexels-photo-2092916.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Tortilla Egg Small", price: 5000, img: "https://images.pexels.com/photos/2092916/pexels-photo-2092916.jpeg?auto=compress&cs=tinysrgb&w=200" },
+                { name: "Kentang Bakar Mozzarella", price: 7000, img: "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=200" }
             ],
             thai: [
-                "Original Thai Tea", "Green Tea", "Matcha", "Brown Sugar", "Taro", "Chocolate", 
-                "Red Velvet", "Tiramisu", "Vanilla", "Moccachino", "Strawberry", "Lychee", "Mango"
+                "Coffee Caramel", "Durian", "Red Velvet", "Matcha", "Vanilla Blue", "Taro", 
+                "Blueberi", "Cookies and Cream", "Choco Caramel", "Tiramisu", "Cappuccino", "Thai Tea Brown Sugar"
             ].map(name => ({ name, price: 5000, isThai: true, img: "https://images.pexels.com/photos/5946638/pexels-photo-5946638.jpeg?auto=compress&cs=tinysrgb&w=200" })),
             coffee: [
+                { name: "Kopi Tubruk", price: 5000 },
+                { name: "Espresso Hot/Cold", price: 7000 },
+                { name: "Kopi Susu", price: 5000 },
                 { name: "Kopi Gula Aren", price: 5000 },
-                { name: "Espresso Cold", price: 7000 },
-                { name: "Cappuccino", price: 5000 },
-                { name: "Coffee Latte", price: 5000 },
-                { name: "Mocca Latte", price: 5000 },
-                { name: "Americano Ice", price: 5000 }
+                { name: "Kopi Jahe", price: 5000 }
             ].map(i => ({...i, img: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=200" })),
             drinks: [
-                { name: "Mojito Melon", price: 5000 },
-                { name: "Mojito Lemon", price: 5000 },
-                { name: "Mojito Strawberry", price: 5000 },
-                { name: "Nutrisari Jeruk", price: 3000 },
-                { name: "Nutrisari Mangga", price: 3000 },
-                { name: "Nutrisari Sweet Orange", price: 3000 },
+                { name: "Mojito Melon with Lemon", price: 5000 },
+                { name: "Mojito Cc Pandan with Lemon", price: 5000 },
+                { name: "Nutrisari All Varian", price: 3000, isNutri: true },
+                { name: "Creamy Latte", price: 5000 },
                 { name: "Bengbeng Drink", price: 5000 },
-                { name: "Air Mineral", price: 3000 }
+                { name: "Hi Low Calcium", price: 5000 },
+                { name: "Cappuccino", price: 5000 }
             ].map(i => ({...i, img: "https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg?auto=compress&cs=tinysrgb&w=200" }))
         };
 
@@ -464,13 +401,26 @@
         renderGrid('coffee-grid', menuData.coffee);
         renderGrid('drink-grid', menuData.drinks);
 
-        let currentOrder = { item: null, qty: 1, creamer: false };
+        let currentOrder = { item: null, qty: 1, extra: false };
 
         function openModal(item) {
-            currentOrder = { item, qty: 1, creamer: false };
+            currentOrder = { item, qty: 1, extra: false };
             document.getElementById('modalName').innerText = item.name;
-            document.getElementById('creamerArea').style.display = item.isThai ? 'block' : 'none';
-            document.getElementById('creamerCheck').checked = false;
+            
+            const extraArea = document.getElementById('extraArea');
+            const extraLabel = document.getElementById('extraLabel');
+            
+            if (item.isThai) {
+                extraArea.style.display = 'block';
+                extraLabel.innerText = "Extra Creamer (+Rp 2.000)";
+            } else if (item.isNutri) {
+                extraArea.style.display = 'block';
+                extraLabel.innerText = "Add Milk (+Rp 2.000)";
+            } else {
+                extraArea.style.display = 'none';
+            }
+            
+            document.getElementById('extraCheck').checked = false;
             updateModalUI();
             document.getElementById('orderModal').style.display = 'flex';
         }
@@ -481,14 +431,19 @@
         }
 
         function updateModalUI() {
-            const hasCreamer = document.getElementById('creamerCheck').checked;
-            const unitPrice = currentOrder.item.price + (hasCreamer ? 2000 : 0);
-            const total = unitPrice * currentOrder.qty;
+            const hasExtra = document.getElementById('extraCheck').checked;
+            const extraPrice = hasExtra ? 2000 : 0;
+            const total = (currentOrder.item.price + extraPrice) * currentOrder.qty;
             
             document.getElementById('modalPrice').innerText = `Rp ${total.toLocaleString('id-ID')}`;
             document.getElementById('qtyVal').innerText = currentOrder.qty;
 
-            const msg = `Halo D. Luna, saya mau pesan:\n*${currentOrder.item.name}* ${hasCreamer ? '(+Creamer)' : ''}\nJumlah: ${currentOrder.qty}\nTotal: Rp ${total.toLocaleString('id-ID')}`;
+            let extraText = "";
+            if (hasExtra) {
+                extraText = currentOrder.item.isThai ? " (+Creamer)" : " (+Milk)";
+            }
+
+            const msg = `Halo D. Luna, saya mau pesan:\n*${currentOrder.item.name}*${extraText}\nJumlah: ${currentOrder.qty}\nTotal: Rp ${total.toLocaleString('id-ID')}`;
             document.getElementById('waLink').href = `https://wa.me/6283898990023?text=${encodeURIComponent(msg)}`;
         }
 
