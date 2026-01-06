@@ -486,7 +486,7 @@
             document.getElementById('modalPrice').innerText = formattedTotal;
             document.getElementById('qtyVal').innerText = currentItem.qty;
 
-            const waNumber = "6281936217211"; 
+            const waNumber = "6283898990023"; 
             const message = encodeURIComponent(`Halo D. Luna, saya ingin pesan:\n\n*${currentItem.name}*\nJumlah: ${currentItem.qty}\nTotal: ${formattedTotal}\n\nApakah tersedia?`);
             document.getElementById('waLink').href = `https://wa.me/${waNumber}?text=${message}`;
         }
@@ -501,4 +501,5 @@
     </script>
 </body>
 </html>
+
 
